@@ -7,6 +7,7 @@
 #include "monty.h"
 int main (int argc, char **argv)
 {
+	stack_t *head = NULL;
 	int fd, loop = 0, loop2 = 0, line_num = 1;
 	char buff[MAX] = " ", *com[MAX];
 	ssize_t rd_check;

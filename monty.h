@@ -32,4 +32,6 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 void test_cases(char *com, int line_num);
+void pall(stack_t **head, int line_num);
+void push(stack_t **temp, int line_num);
 #endif
