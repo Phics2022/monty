@@ -31,7 +31,8 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-void test_cases(char *com, int line_num);
-void pall(stack_t **head, int line_num);
-void push(stack_t **temp, int line_num);
+void test_cases(char *com, unsigned int line_num);
+void pall(stack_t **head, unsigned int line_num);
+void push(stack_t **temp, unsigned int line_num);
+void pint(stack_t **head, unsigned int line_num);
 #endif

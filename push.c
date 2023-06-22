@@ -1,8 +1,14 @@
 #include "monty.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-void push (stack_t **temp, int line_num)
+/**
+  *push - push to beginning of stack
+  *@temp: stact_t holder sha
+  *@line_num: line number
+  *
+  *Return: void
+  */
+void push (stack_t **temp, unsigned int line_num)
 {
 	static stack_t *head;
 	if (head == NULL)

@@ -4,15 +4,15 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-void test_cases(char *com, int line_num)
+void test_cases(char *com, unsigned int line_num)
 {
 	stack_t *head;
-	char com_cpy[10];
-	strcpy(com_cpy, com);
 	char *line[MAX];
 	int loop = 0;
 	stack_t *temp;
-	line[loop] = strtok(com_cpy, " ");
+	instruction_t instruct;
+	instruct.opcode = com;
+	line[loop] = strtok(instruct.opcode, " ");
 	while (line[loop] != NULL)
 	{
 		loop++;
@@ -23,11 +23,18 @@ void test_cases(char *com, int line_num)
 	{
 		temp = malloc(sizeof(stack_t));
 		temp->n = atoi(line[1]);
-		push(&temp,line_num);
+		instruct.f = push;
+		instruct.f(&temp, line_num);
 	}
 	else if (strcmp(line[0], "pall") == 0)
 	{
-		pall(&head, line_num);
+		instruct.f = pall;
+		instruct.f(&head, line_num);
+	}
+	else if (strcmp(line[0], "pint") == 0)
+	{
+		instruct.f = pint;
+		instruct.f(&head, line_num);
 	}
 	else
 	{
