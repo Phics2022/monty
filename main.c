@@ -5,33 +5,34 @@
 #include <sys/types.h>
 #include <string.h>
 #include "monty.h"
-int main (int argc, char **argv)
+/**
+  *main - main function
+  *@argc: argument count
+  *@argv: vector
+  *
+  *Return: 0
+  */
+int main(int argc, char **argv)
 {
-	stack_t *head = NULL;
-	int fd, loop = 0, loop2 = 0;
+	__attribute__((unused)) stack_t *head = NULL;
+	int fd, loop = 0;
 	unsigned int line_num = 1;
 	char buff[MAX] = " ", *com[MAX];
-	ssize_t rd_check;
 
 	if (argc != 2 || argv[1] == NULL)
 	{
 		write(2, "USAGE: monty file\n", 19);
 		exit(EXIT_FAILURE);
 	}
-	//read from a monty file
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		dprintf(2, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	rd_check = read(fd, buff, MAX);
+	read(fd, buff, MAX);
 	close(fd);
-
-	//strtok the buffer with '\n'
-	com[loop] = strtok(buff,"\n");
-
-	//put in a loop
+	com[loop] = strtok(buff, "\n");
 	while (com[loop] != NULL)
 	{
 		loop++;

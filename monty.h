@@ -35,4 +35,11 @@ void test_cases(char *com, unsigned int line_num);
 void pall(stack_t **head, unsigned int line_num);
 void push(stack_t **temp, unsigned int line_num);
 void pint(stack_t **head, unsigned int line_num);
+void line_err(char *line[], unsigned int line_num);
+void mal_err(stack_t *temp);
+void pop(stack_t **head, unsigned int line_num);
+void swap(stack_t **head, unsigned int line_num);
+void add(stack_t **head, unsigned int line_num);
+void nop(stack_t **head, unsigned int line_num);
+void check_com(char *line[], unsigned int line_num, char *com, instruction_t *instruct);
 #endif

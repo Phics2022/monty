@@ -1,0 +1,44 @@
+#include "monty.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+void check_com(char **line, unsigned int line_num, char *com, instruction_t *instruct)
+{
+	stack_t *head;
+
+	if (strcmp(line[0], "pall") == 0)
+	{
+		instruct->f = pall;
+		instruct.f(&head, line_num);
+	}
+	else if (strcmp(line[0], "pint") == 0)
+	{
+		instruct.f = pint;
+		instruct.f(&head, line_num);
+	}
+	else if (strcmp(line[0], "pop") == 0)
+	{
+		instruct.f = pop;
+		instruct.f(&head, line_num);
+	}
+	else if (strcmp(line[0], "swap") == 0)
+	{
+		instruct.f = swap;
+		instruct.f(&head, line_num);
+	}
+	else if (strcmp(line[0], "add") == 0)
+	{
+		instruct.f = add;
+		instruct.f(&head, line_num);
+	}
+	else if (strcmp(line[0], "nop") == 0)
+	{
+		return;
+	}
+	else
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_num, com);
+		exit(EXIT_FAILURE);
+	}
+
+}

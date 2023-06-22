@@ -8,13 +8,14 @@
   *
   *Return: void
   */
-void push (stack_t **temp, unsigned int line_num)
+void push(stack_t **temp, __attribute((unused)) unsigned int line_num)
 {
 	static stack_t *head;
+
 	if (head == NULL)
 	{
-		(*temp)->next = NULL; 
-		(*temp)->prev = NULL; 
+		(*temp)->next = NULL;
+		(*temp)->prev = NULL;
 		head = *temp;
 	}
 	else

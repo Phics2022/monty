@@ -8,9 +8,14 @@
   *
   *Return: void
   */
-void pall(stack_t **head, unsigned int line_num)
+void pall(stack_t **head, __attribute__((unused)) unsigned int line_num)
 {
 	stack_t *temp = *head;
+
+	if (*head == NULL)
+	{
+		return;
+	}
 	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
