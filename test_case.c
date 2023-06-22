@@ -6,6 +6,7 @@
 
 void test_cases(char *com, int line_num)
 {
+	stack_t *head;
 	char com_cpy[10];
 	strcpy(com_cpy, com);
 	char *line[MAX];
@@ -14,7 +15,6 @@ void test_cases(char *com, int line_num)
 	line[loop] = strtok(com_cpy, " ");
 	while (line[loop] != NULL)
 	{
-		printf("line: %s\n", line[loop]);
 		loop++;
 		line[loop] = strtok(NULL, " ");
 	}
@@ -22,9 +22,7 @@ void test_cases(char *com, int line_num)
 	if (strcmp(line[0], "push") == 0)
 	{
 		temp = malloc(sizeof(stack_t));
-		temp->n = line[1];
-	//printf("push = %s\n", line[0]);
-		//printf("id = %d\n", atoi(line[1]));
+		temp->n = atoi(line[1]);
 		push(&temp,line_num);
 	}
 	else if (strcmp(line[0], "pall") == 0)

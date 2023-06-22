@@ -4,16 +4,17 @@
 
 void push (stack_t **temp, int line_num)
 {
-	if (*head == NULL)
+	static stack_t *head;
+	if (head == NULL)
 	{
 		(*temp)->next = NULL; 
 		(*temp)->prev = NULL; 
-		*head = temp;
+		head = *temp;
 	}
 	else
 	{
-		(*temp)->next = *head;
+		(*temp)->next = head;
 		(*temp)->prev = NULL;
-		*head = *temp;
+		head = *temp;
 	}
 }
