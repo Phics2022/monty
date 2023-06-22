@@ -2,17 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-void check_com(char **line, unsigned int line_num, char *com, instruction_t *instruct)
+void check_com(char *line, stack_t *head, instruction_t instruct, unsigned int line_num)
 {
 	if (strcmp(line[0], "pall") == 0)
 	{
-		(*instruct).f = pall;
-		(*instruct).f(&head, line_num);
+		instruct.f = pall;
+		instruct.f(&head, line_num);
 	}
 	else if (strcmp(line[0], "pint") == 0)
 	{
-		(*instruct).f = pint;
-		(*instruct).f(&head, line_num);
+		instruct.f = pint;
+		instruct.f(&head, line_num);
 	}
 	else if (strcmp(line[0], "pop") == 0)
 	{
