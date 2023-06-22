@@ -41,5 +41,4 @@ void pop(stack_t **head, unsigned int line_num);
 void swap(stack_t **head, unsigned int line_num);
 void add(stack_t **head, unsigned int line_num);
 void nop(stack_t **head, unsigned int line_num);
-void check_com(char *line[], unsigned int line_num, char *com, instruction_t *instruct);
 #endif

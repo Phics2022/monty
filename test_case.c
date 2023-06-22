@@ -12,7 +12,7 @@
   */
 void test_cases(char *com, unsigned int line_num)
 {
-	stack_t *temp;
+	stack_t *temp, *head;
 	char *line[MAX];
 	int loop = 0;
 	instruction_t instruct;
@@ -33,8 +33,39 @@ void test_cases(char *com, unsigned int line_num)
 		instruct.f = push;
 		instruct.f(&temp, line_num);
 	}
+	else if (strcmp(line[0], "pall") == 0)
+	{
+		instruct.f = pall;
+		instruct.f(&head, line_num);
+	}
+	else if (strcmp(line[0], "pint") == 0)
+	{
+		instruct.f = pint;
+		instruct.f(&head, line_num);
+	}
+	else if (strcmp(line[0], "pop") == 0)
+	{
+		instruct.f = pop;
+		instruct.f(&head, line_num);
+	}
+	else if (strcmp(line[0], "swap") == 0)
+	{
+		instruct.f = swap;
+		instruct.f(&head, line_num);
+	}
+	else if (strcmp(line[0], "add") == 0)
+	{
+		instruct.f = add;
+		instruct.f(&head, line_num);
+	}
+	else if (strcmp(line[0], "nop") == 0)
+	{
+		return;
+	}
 	else
 	{
-		check_com(line, line_num, com, &instruct);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_num, com);
+		exit(EXIT_FAILURE);
 	}
+
 }
