@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	FILE *fd;
 	int loop = 0;
 	unsigned int line_num = 1;
-	char buff[MAX] = " ", *com[MAX], temp[100];
+	char *com[MAX], temp[100];
 
 	if (argc != 2 || argv[1] == NULL)
 	{
