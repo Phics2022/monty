@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2 || argv[1] == NULL)
 	{
-		write(2, "USAGE: monty file\n", 19);
+		write(2, "USAGE: monty file\n", 18);
 		exit(EXIT_FAILURE);
 	}
 	fd = fopen(argv[1], "r");
