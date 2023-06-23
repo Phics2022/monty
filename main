@@ -15,29 +15,35 @@
 int main(int argc, char **argv)
 {
 	__attribute__((unused)) stack_t *head = NULL;
-	FILE *fd;
-	int loop = 0;
+	int fd, loop = 0;
 	unsigned int line_num = 1;
-	char buff[MAX] = " ", *com[MAX], temp[100];
+	char buff[MAX] = " ", *com[MAX];
 
 	if (argc != 2 || argv[1] == NULL)
 	{
 		write(2, "USAGE: monty file\n", 19);
 		exit(EXIT_FAILURE);
 	}
-	fd = fopen(argv[1], "r");
-	if (fd == NULL)
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (fgets(temp, 100, fd) != NULL)
+	read(fd, buff, MAX);
+	close(fd);
+	com[loop] = strtok(buff, "\n");
+	while (com[loop] != NULL)
 	{
-		com[loop] = temp;
+		loop++;
+		com[loop] = strtok(NULL, "\n");
+	}
+	loop = 0;
+	while (com[loop] != NULL)
+	{
 		test_cases(com[loop], line_num);
 		line_num++;
 		loop++;
 	}
-	fclose(fd);
 	return (0);
 }

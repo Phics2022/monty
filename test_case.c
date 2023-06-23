@@ -62,6 +62,10 @@ void test_cases(char *com, unsigned int line_num)
 	{
 		return;
 	}
+	else if (strcmp(line[0], "\n") == 0)
+	{
+		;
+	}
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_num, com);
