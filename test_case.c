@@ -33,32 +33,32 @@ void test_cases(char *com, unsigned int line_num)
 		instruct.f = push;
 		instruct.f(&temp, line_num);
 	}
-	else if (strcmp(line[0], "pall") == 0)
+	else if (strcmp(line[0], "pall\n") == 0)
 	{
 		instruct.f = pall;
 		instruct.f(&head, line_num);
 	}
-	else if (strcmp(line[0], "pint") == 0)
+	else if (strcmp(line[0], "pint\n") == 0)
 	{
 		instruct.f = pint;
 		instruct.f(&head, line_num);
 	}
-	else if (strcmp(line[0], "pop") == 0)
+	else if (strcmp(line[0], "pop\n") == 0)
 	{
 		instruct.f = pop;
 		instruct.f(&head, line_num);
 	}
-	else if (strcmp(line[0], "swap") == 0)
+	else if (strcmp(line[0], "swap\n") == 0)
 	{
 		instruct.f = swap;
 		instruct.f(&head, line_num);
 	}
-	else if (strcmp(line[0], "add") == 0)
+	else if (strcmp(line[0], "add\n") == 0)
 	{
 		instruct.f = add;
 		instruct.f(&head, line_num);
 	}
-	else if (strcmp(line[0], "nop") == 0)
+	else if (strcmp(line[0], "nop\n") == 0)
 	{
 		return;
 	}
